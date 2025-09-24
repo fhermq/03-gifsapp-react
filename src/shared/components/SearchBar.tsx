@@ -13,19 +13,25 @@ export const SearchBar = ({ placeholder = 'Buscar ...', button, onQuery }: Props
   //Se dispara en cuanto el componente es montado
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      onQuery(query);
+      // onQuery(query);
+      handleSearch();
     }, 700);
 
     return () => {
       clearTimeout(timeoutId);
     };
-  },[query, onQuery]);
+  }, [query, onQuery]); //Dependencias del efecto
+
+
 
   const handleSearch = () => {
+    // console.log(query);
+    // console.log('SearchBar - handleSearch()');
     onQuery(query);
   }
 
-  const handleKeyDown = (event: KeyboardEvent <HTMLInputElement>) => {
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter')
       handleSearch();
   }
