@@ -3,7 +3,7 @@ import { ContainerGifs } from "./gifs/components/ContainerGifs"
 import { PreviousSearches } from "./gifs/components/PreviousSearches"
 import { mockGifs } from "./mock-data/gif.mocks"
 import { CustomHeader } from "./shared/components/CustomHeader"
-import { CustomSearch } from "./shared/components/CustomSearch"
+import { SearchBar } from "./shared/components/SearchBar"
 
 export const GifsApp = () => {
     const [previousTerms, setPreviousTerms] = useState(['dan da dan']);
@@ -13,7 +13,7 @@ export const GifsApp = () => {
     }
 
     const handleSearch = (query:string) =>{
-        console.log(query)
+        console.log({query})
     }
 
     return (
@@ -22,7 +22,10 @@ export const GifsApp = () => {
             <CustomHeader title="Buscador de Gifs" description="Descubre los mejores Gifs para compartir" />
 
             {/* Search */}
-            <CustomSearch placeholder="Buscar ..." button="Search" />
+            <SearchBar placeholder="Buscar ..." 
+            button="Search"
+            // handleSearch = {(query:string) =>handleSearch(query) } />
+            onQuery = {handleSearch} />
 
             {/* Búsquedas previas */}
             {/* <GifPreviousSearches searches={['Yuyutsu Kaisen', 'Demong Salayer','Dan da Dan']} /> */}
