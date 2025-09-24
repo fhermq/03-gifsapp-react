@@ -1,4 +1,4 @@
-import { useState, type KeyboardEvent } from "react";
+import { useEffect, useState, type KeyboardEvent } from "react";
 
 interface PropsCustomSearch {
   placeholder: string;
@@ -9,6 +9,17 @@ interface PropsCustomSearch {
 
 export const SearchBar = ({ placeholder = 'Buscar ...', button, onQuery }: PropsCustomSearch) => {
   const [query, setQuery] = useState('');
+
+  //Se dispara en cuanto el componente es montado
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      onQuery(query);
+    }, 700);
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  },[query, onQuery]);
 
   const handleSearch = () => {
     onQuery(query);

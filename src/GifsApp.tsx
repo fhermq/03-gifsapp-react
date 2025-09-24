@@ -23,7 +23,7 @@ export const GifsApp = () => {
 
             {/* Search */}
             <SearchBar placeholder="Buscar ..." 
-            button="Search"
+            button="Buscar"
             // handleSearch = {(query:string) =>handleSearch(query) } />
             onQuery = {handleSearch} />
 
