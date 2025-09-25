@@ -5,7 +5,6 @@ export interface GiphyResponse {
 }
 
 export interface GiphyGif {
-    type:                       Type;
     id:                         string;
     url:                        string;
     slug:                       string;
@@ -15,14 +14,14 @@ export interface GiphyGif {
     username:                   string;
     source:                     string;
     title:                      string;
-    rating:                     Rating;
+
     content_url:                string;
-    source_tld:                 SourceTLD;
+
     source_post_url:            string;
     source_caption?:            string;
     is_sticker:                 number;
     import_datetime:            Date;
-    trending_datetime:          TrendingDatetime;
+
     images:                     Images;
     user?:                      User;
     analytics_response_payload: string;
@@ -98,24 +97,6 @@ export interface FixedHeight {
 export interface Looping {
     mp4_size?: string;
     mp4?:      string;
-}
-
-export enum Rating {
-    G = "g",
-    PG = "pg",
-}
-
-export enum SourceTLD {
-    Empty = "",
-    WWWYoutubeCOM = "www.youtube.com",
-}
-
-export enum TrendingDatetime {
-    The00000000000000 = "0000-00-00 00:00:00",
-}
-
-export enum Type {
-    GIF = "gif",
 }
 
 export interface User {
