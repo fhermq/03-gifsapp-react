@@ -5,6 +5,7 @@ export interface GiphyResponse {
 }
 
 export interface GiphyGif {
+    type:                       Type;
     id:                         string;
     url:                        string;
     slug:                       string;
@@ -14,14 +15,14 @@ export interface GiphyGif {
     username:                   string;
     source:                     string;
     title:                      string;
-
+    rating:                     Rating;
     content_url:                string;
-
+    source_tld:                 SourceTLD;
     source_post_url:            string;
     source_caption?:            string;
     is_sticker:                 number;
     import_datetime:            Date;
-
+    trending_datetime:          TrendingDatetime;
     images:                     Images;
     user?:                      User;
     analytics_response_payload: string;
@@ -98,6 +99,14 @@ export interface Looping {
     mp4_size?: string;
     mp4?:      string;
 }
+
+export type Rating = 'G' | 'PG';
+
+export type SourceTLD = 'Empty' | 'WWWYoutubeCOM';
+
+export type TrendingDatetime = '0000-00-00 00:00:00';
+
+export type Type = 'gif';
 
 export interface User {
     avatar_url:    string;
