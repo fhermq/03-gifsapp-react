@@ -10,6 +10,7 @@ export const useCounter = (initialValue: number =10) => {
     
         const handleSusbtract = () =>{
             setcounter( (prevState) => prevState -1 );
+            // setcounter(counter-1);
         }
     
         const handleReset = () =>{
