@@ -24,7 +24,7 @@ export const getGifsByQuery = async (query: string): Promise<Gif[]> => {
         }))
 
     } catch (error) {
-        console.log(error);
+        console.error(error);
         return [];
     }
 
