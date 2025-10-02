@@ -13,7 +13,7 @@ export const useGifs = () => {
     const gifsCache = useRef<Record<string, Gif[]>>({});
 
 
-    const handleTermClicked = async(term: string) => {
+    const handleTermClicked = async (term: string) => {
         if (gifsCache.current[term]) {
             setGifs(gifsCache.current[term]);
             return;
@@ -21,6 +21,7 @@ export const useGifs = () => {
         console.log('No estaba el valor en cache')
         const gifs = await getGifsByQuery(term);
         setGifs(gifs);
+        gifsCache.current[term] = gifs;
         // console.log(term);
     };
 
@@ -34,10 +35,11 @@ export const useGifs = () => {
         if (previousTerms.includes(query)) return;
 
         //Permitir maximo 8 registros
-        if (previousTerms.length === 8)
-            //     previousTerms.pop();
-            // previousTerms.unshift(query);
-            console.log({ previousTerms });
+        // if (previousTerms.length === 8){
+        //     previousTerms.pop();
+        // previousTerms.unshift(query);
+        // console.log({ previousTerms });
+        // }
         setPreviousTerms([query, ...previousTerms].splice(0, 8));
 
         const gifs = await getGifsByQuery(query);
