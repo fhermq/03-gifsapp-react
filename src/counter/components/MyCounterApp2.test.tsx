@@ -1,7 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, test, vi } from "vitest";
 import { MyCounterApp } from "./MyCounterApp";
-import { useCounter } from "../hooks/useCounter";
 // import { useCounter } from "../hooks/useCounter";
 
 const handleAddMock = vi.fn();
