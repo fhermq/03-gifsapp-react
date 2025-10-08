@@ -21,17 +21,17 @@ describe('useGifs', () => {
             await result.current.handleSearch('goku');
         });
         // console.log(result.current.gifs);
-        // expect(result.current.gifs.length).toBe(10);
+        expect(result.current.gifs.length).toBe(10);
 
     });
 
     test('Should return a list of gifs when hanldeTermClicked is called', async () => {
-        // const { result } = renderHook(() => useGifs());
-        // //Se ejecuta una sola vez.
-        // await act(async () => {
-        //     await result.current.handleTermClicked('dragon ball');
-        // });
-        // expect(result.current.gifs.length).toBe(10);
+        const { result } = renderHook(() => useGifs());
+
+        await act(async () => {
+            await result.current.handleTermClicked('dragon ball');
+        });
+        expect(result.current.gifs.length).toBe(10);
         console.log("Este es el test que falla")
     });
 
@@ -42,7 +42,7 @@ describe('useGifs', () => {
             await result.current.handleTermClicked('dragon ball');
         });
 
-        // expect(result.current.gifs.length).toBe(10);
+        expect(result.current.gifs.length).toBe(10);
 
         vi.spyOn(gifActions, 'getGifsByQuery').mockRejectedValue(
             new Error('This is my custom Error')
@@ -51,7 +51,7 @@ describe('useGifs', () => {
         await act(async () => {
             await result.current.handleTermClicked('dragon ball');
         });
-        // expect(result.current.gifs.length).toBe(10);
+        expect(result.current.gifs.length).toBe(10);
 
     });
 
@@ -93,7 +93,7 @@ describe('useGifs', () => {
         });
 
         // console.log(result.current.previousTerms);
-        // expect(result.current.previousTerms.length).toBe(8);
+        expect(result.current.previousTerms.length).toBe(8);
         expect(result.current.previousTerms).toStrictEqual([
             'apple',
             'cat',
